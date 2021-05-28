@@ -1,6 +1,11 @@
 analytics-ruby
 ==============
 
+## Note
+- This fork is meant to be a way to handle conflict namespaces with a class ```Segment``` and the gem internal class ```Segment```. It contains a ```build.sh``` script that should be run against the original gem whenever there's a new version, and then the resulting files should be commited and pushed to this fork. Internally it mantains the same functionality
+
+====================================================
+
 analytics-ruby is a ruby client for [Segment](https://segment.com)
 
 <div align="center">
@@ -61,7 +66,7 @@ gem install 'analytics-ruby'
 
 Create an instance of the Analytics object:
 ```ruby
-analytics = Segment::Analytics.new(write_key: 'YOUR_WRITE_KEY')
+analytics = SegmentIO::Analytics.new(write_key: 'YOUR_WRITE_KEY')
 ```
 
 Identify the user for the people section, see more [here](https://segment.com/docs/libraries/ruby/#identify).
@@ -92,18 +97,18 @@ Documentation is available at [segment.com/docs/sources/server/ruby](https://seg
 
 ## Testing
 
-You can use the `stub: true` option to Segment::Analytics.new to cause all requests to be stubbed, making it easier to test with this library.
+You can use the `stub: true` option to SegmentIO::Analytics.new to cause all requests to be stubbed, making it easier to test with this library.
 
 ### Test Queue
 
-You can use the `test: true` option to Segment::Analytics.new to cause all requests to be saved to a test queue until manually reset. All events will process as specified by the configuration, and they will also be stored in a separate queue for inspection during testing.
+You can use the `test: true` option to SegmentIO::Analytics.new to cause all requests to be saved to a test queue until manually reset. All events will process as specified by the configuration, and they will also be stored in a separate queue for inspection during testing.
 
 A test queue can be used as follows:
 
 ```ruby
-client = Segment::Analytics.new(test: true)
+client = SegmentIO::Analytics.new(test: true)
 
-client.test_queue # => #<Segment::Analytics::TestQueue:0x00007f88d454e9a8 @messages={}>
+client.test_queue # => #<SegmentIO::Analytics::TestQueue:0x00007f88d454e9a8 @messages={}>
 
 client.track(user_id: 'foo', event: 'bar')
 
