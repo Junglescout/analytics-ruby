@@ -168,7 +168,7 @@
 
 2.0.1 / 2014-05-15
 ==================
-* add: namespace under Segment::Analytics
+* add: namespace under SegmentIO::Analytics
 * add: can create multiple instances with creator method (rather than
     having a singleton)
 * add: logging with Logger instance or Rails.logger if available
