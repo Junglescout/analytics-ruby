@@ -1,14 +1,14 @@
-require 'segment/analytics/defaults'
-require 'segment/analytics/message_batch'
-require 'segment/analytics/transport'
-require 'segment/analytics/utils'
+require 'segment_io/analytics/defaults'
+require 'segment_io/analytics/message_batch'
+require 'segment_io/analytics/transport'
+require 'segment_io/analytics/utils'
 
-module Segment
+module SegmentIO
   class Analytics
     class Worker
-      include Segment::Analytics::Utils
-      include Segment::Analytics::Defaults
-      include Segment::Analytics::Logging
+      include SegmentIO::Analytics::Utils
+      include SegmentIO::Analytics::Defaults
+      include SegmentIO::Analytics::Logging
 
       # public: Creates a new worker
       #
